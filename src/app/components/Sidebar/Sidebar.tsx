@@ -6,6 +6,7 @@ import styles from "./Sidebar.module.scss";
 import Link from "next/link";
 import clsx from "clsx";
 import { SidebarItem } from "./ui/SidebarItem";
+import { Library } from "./ui/Library";
 
 interface SidebarProps {
   children: React.ReactNode;
@@ -44,6 +45,7 @@ const Sidebar = ({ children }: SidebarProps): JSX.Element => {
           />
         ))}
       </div>
+      <Library />
     </div>
   );
 };

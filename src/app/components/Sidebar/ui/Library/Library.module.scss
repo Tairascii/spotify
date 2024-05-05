@@ -1,0 +1,38 @@
+.block {
+  padding: 8px 12px;
+  background-color: $background-base;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 12px;
+}
+
+.yourPlaylist {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: $gray-not-active;
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.addButton {
+  @extend %reset-button;
+  color: $gray-not-active;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: $white;
+  }
+}

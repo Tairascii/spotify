@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "create-component": "./src/scripts/create-component.sh"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.3",

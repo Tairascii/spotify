@@ -10,6 +10,7 @@ const nextConfig = {
     prependData: `
       @import "mixins.scss";
       @import "vars.scss";
+      @import "extends.scss";
     `,
   },
 };
