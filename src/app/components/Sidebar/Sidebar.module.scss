@@ -1,9 +1,21 @@
 .block {
   display: flex;
-  flex-direction: column;
   gap: 8px;
-  width: 300px;
+  align-items: flex-start;
   height: 100%;
+}
+
+.sidebarWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 8px;
+  width: 330px;
+  height: 100%;
+
+  @include mobile {
+    display: none;
+  }
 }
 
 .sidebar {
@@ -13,4 +25,3 @@
   padding: 8px 12px;
   border-radius: 8px;
 }
-

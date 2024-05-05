@@ -1,0 +1,72 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.arrowLeftButton,
+.arrowRightButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  background-color: $black;
+  border-radius: 50%;
+  @extend %reset-button;
+}
+
+.arrows {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.signInUp {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.signUp,
+.signIn {
+  @extend %reset-button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  line-height: 32px;
+  font-size: 20px;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05, 1.05);
+  }
+}
+
+.signIn {
+  color: $black;
+  background-color: $white;
+  padding: 8px 32px;
+  border-radius: 100px;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.95;
+  }
+}
+
+.signUp {
+  color: $gray-not-active;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $white;
+  }
+}

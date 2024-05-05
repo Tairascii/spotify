@@ -34,18 +34,21 @@ const Sidebar = ({ children }: SidebarProps): JSX.Element => {
   );
   return (
     <div className={styles.block}>
-      <div className={styles.sidebar}>
-        {routes.map((route) => (
-          <SidebarItem
-            key={route.href}
-            href={route.href}
-            isActive={route.isActive}
-            label={route.label}
-            icon={route.icon}
-          />
-        ))}
+      <div className={styles.sidebarWrapper}>
+        <div className={styles.sidebar}>
+          {routes.map((route) => (
+            <SidebarItem
+              key={route.href}
+              href={route.href}
+              isActive={route.isActive}
+              label={route.label}
+              icon={route.icon}
+            />
+          ))}
+        </div>
+        <Library />
       </div>
-      <Library />
+      {children}
     </div>
   );
 };

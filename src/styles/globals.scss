@@ -7,5 +7,10 @@ body {
 }
 
 body {
+  box-sizing: border-box;
   padding: 8px;
+
+  @include mobile {
+    padding: 0;
+  }
 }
