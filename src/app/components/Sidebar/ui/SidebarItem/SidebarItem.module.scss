@@ -1,0 +1,21 @@
+
+.route {
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 40px;
+  text-decoration: none;
+  color: $gray-not-active;
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: $white;
+  }
+}
+
+.activeRoute {
+  color: $white;
+}

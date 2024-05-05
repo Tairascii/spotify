@@ -9,6 +9,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "src/styles")],
     prependData: `
       @import "mixins.scss";
+      @import "vars.scss";
     `,
   },
 };
