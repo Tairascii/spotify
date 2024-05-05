@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 import styles from "./Header.module.scss";
@@ -6,7 +6,7 @@ import styles from "./Header.module.scss";
 interface HeaderProps {}
 
 const Header = ({}: HeaderProps): JSX.Element => {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div className={styles.block}>
@@ -23,10 +23,10 @@ const Header = ({}: HeaderProps): JSX.Element => {
           {true && (
             <div className={styles.signInUp}>
               <button className={styles.signUp}>
-                <span className={styles.signUpText}>Sign Up</span>
+                <span className={styles.signUpText}>Sign up</span>
               </button>
               <button className={styles.signIn}>
-                <span className={styles.signInText}>Sign In</span>
+                <span className={styles.signInText}>Log in</span>
               </button>
             </div>
           )}
