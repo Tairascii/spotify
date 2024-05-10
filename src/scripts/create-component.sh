@@ -13,7 +13,7 @@ if [ -z "$component_name" ]; then
 fi
 
 # Дериктории компонента
-component_dir="src/app/components/$component_name_or_path"
+component_dir="src/components/$component_name_or_path"
 mkdir -p $component_dir
 
 # Шаблонные файлы в дериктории

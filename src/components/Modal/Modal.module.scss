@@ -1,0 +1,39 @@
+.overlay {
+  position: fixed;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0.9;
+  background-color: $background-base;
+  inset: 0;
+}
+
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-height: 85vh;
+  width: 450px;
+  padding: 12px;
+  border-radius: 16px;
+  background-color: $background-elevated-base;
+  transform: translate(-50%, -50%);
+
+  @include mobile {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.closeButton {
+  @extend %reset-button;
+  top: 12px;
+  right: 12px;
+  position: absolute;
+  color: $gray-not-active;
+  
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $white;
+  }
+}

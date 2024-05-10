@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "@/styles/globals.scss";
 import { Sidebar } from "@/components/Sidebar";
+import { Modal } from "@/components/Modal";
+import { ModalProvider } from "@/providers/ModalProvider";
 
 const figtree = Figtree({ subsets: ["latin"] });
 
@@ -23,6 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={figtree.className}>
         <Sidebar children={children} />
+        <ModalProvider />
       </body>
     </html>
   );
