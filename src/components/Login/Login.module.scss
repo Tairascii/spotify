@@ -1,0 +1,105 @@
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 32px 0;
+  border-radius: 8px;
+  max-width: 734px;
+  width: 100%;
+  background-color: $background-base;
+}
+
+.title {
+  font-size: 32px;
+  margin: 48px 0;
+}
+
+.continueWithButton {
+  @extend %reset-button;
+  display: flex;
+  align-items: center;
+  padding: 8px 32px;
+  border: 1px solid $essential-subdued;
+  border-radius: 50px;
+
+  &:hover {
+    border-color: $white;
+  }
+}
+
+.continueWithTitle {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: auto;
+  padding: 6px 28px;
+}
+
+.continueWithLogo {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.loginWithThird {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.divider {
+  height: 1px;
+  width: calc(100% - 200px);
+  margin: 36px 0;
+  border: none;
+  background-color: $background-elevated-base;
+}
+
+.input {
+  width: 324px;
+  margin-bottom: 16px;
+}
+
+.switcher {
+  padding: 6px 0;
+}
+
+.login {
+  @extend %reset-button;
+  height: 48px;
+  margin: 32px 0;
+  padding: 8px 32px;
+  width: 100%;
+  border-radius: 9999px;
+  background-color: $b-green;
+}
+
+.loginText {
+  color: $black;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.forgot {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: $white;
+  color: $white;
+
+  &:hover {
+    text-decoration-color: $b-green;
+    color: $b-green;
+  }
+}
+
+.signUp {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 1rem;
+  margin: 36px 0;
+}
+
+.signUpText {
+  color: $text-subdued;
+}

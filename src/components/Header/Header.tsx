@@ -1,5 +1,7 @@
 "use client";
+import { UrlEnum } from "@/enums/UrlEnum";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import styles from "./Header.module.scss";
 
@@ -22,12 +24,12 @@ const Header = ({}: HeaderProps): JSX.Element => {
         <div className={styles.account}>
           {true && (
             <div className={styles.signInUp}>
-              <button className={styles.signUp}>
+              <Link href={UrlEnum.signup} className={styles.signUp}>
                 <span className={styles.signUpText}>Sign up</span>
-              </button>
-              <button className={styles.signIn}>
+              </Link>
+              <Link href={UrlEnum.login} className={styles.signIn}>
                 <span className={styles.signInText}>Log in</span>
-              </button>
+              </Link>
             </div>
           )}
         </div>
