@@ -1,11 +1,14 @@
 .layout {
+  display: flex;
+  gap: 8px;
+  height: 100%;
   padding: 8px;
+  box-sizing: border-box;
 }
 
 .block {
   border-radius: 8px;
   background-color: $background-base;
-  height: 100%;
   width: 100%;
   padding: 16px 24px;
 

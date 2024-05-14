@@ -3,7 +3,7 @@ import styles from "./Input.module.scss";
 
 interface InputProps extends Partial<HTMLInputElement> {
   wrapperClassName?: string;
-  label: string;
+  label?: string;
 }
 
 const Input = ({
@@ -14,18 +14,22 @@ const Input = ({
   type,
   name,
   id,
+  accept,
 }: InputProps): JSX.Element => {
   return (
     <div className={clsx(styles.block, wrapperClassName)}>
-      <label htmlFor={id}>
-        <span className={styles.label}>{label}</span>
-      </label>
+      {label && (
+        <label htmlFor={id}>
+          <span className={styles.label}>{label}</span>
+        </label>
+      )}
       <input
         type={type}
         placeholder={placeholder}
         name={name}
         id={id}
         className={clsx(styles.input, className)}
+        accept={accept}
       />
     </div>
   );

@@ -1,12 +1,5 @@
 .block {
   display: flex;
-  gap: 8px;
-  align-items: flex-start;
-  height: 100%;
-}
-
-.sidebarWrapper {
-  display: flex;
   flex-direction: column;
   flex-shrink: 0;
   gap: 8px;

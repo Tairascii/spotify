@@ -3,16 +3,13 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import styles from "./Sidebar.module.scss";
-import Link from "next/link";
-import clsx from "clsx";
 import { SidebarItem } from "./ui/SidebarItem";
 import { Library } from "./ui/Library";
 
 interface SidebarProps {
-  children: React.ReactNode;
 }
 
-const Sidebar = ({ children }: SidebarProps): JSX.Element => {
+const Sidebar = (): JSX.Element => {
   const pathname = usePathname();
 
   const routes = useMemo(
@@ -34,7 +31,6 @@ const Sidebar = ({ children }: SidebarProps): JSX.Element => {
   );
   return (
     <div className={styles.block}>
-      <div className={styles.sidebarWrapper}>
         <div className={styles.sidebar}>
           {routes.map((route) => (
             <SidebarItem
@@ -47,8 +43,6 @@ const Sidebar = ({ children }: SidebarProps): JSX.Element => {
           ))}
         </div>
         <Library />
-      </div>
-      {children}
     </div>
   );
 };

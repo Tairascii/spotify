@@ -18,7 +18,8 @@ export default function HomeLayout({
 }>) {
   return (
     <div className={styles.layout}>
-      <Sidebar children={children} />
+      <Sidebar />
+      {children}
     </div>
   );
 }

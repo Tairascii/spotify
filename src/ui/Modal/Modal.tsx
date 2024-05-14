@@ -2,9 +2,11 @@
 
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import * as Dialog from "@radix-ui/react-dialog";
+import clsx from "clsx";
 import styles from "./Modal.module.scss";
 
 interface ModalProps {
+  className?: string
   isOpen: boolean;
   onChange: (val: boolean) => void;
   title: string;
@@ -18,12 +20,13 @@ const Modal = ({
   title,
   description,
   children,
+  className,
 }: ModalProps): JSX.Element => {
   return (
     <Dialog.Root open={isOpen} onOpenChange={onChange} defaultOpen={isOpen}>
       <Dialog.Portal>
         <Dialog.Overlay className={styles.overlay} />
-        <Dialog.Content className={styles.content}>
+        <Dialog.Content className={clsx(className, styles.content)}>
           <Dialog.Title>{title}</Dialog.Title>
           <Dialog.Description>{description}</Dialog.Description>
           <div>{children}</div>
