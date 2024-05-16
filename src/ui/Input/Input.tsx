@@ -1,7 +1,11 @@
 import clsx from "clsx";
+import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import styles from "./Input.module.scss";
 
-interface InputProps extends Partial<HTMLInputElement> {
+interface InputProps
+  extends Partial<
+    DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
+  > {
   wrapperClassName?: string;
   label?: string;
 }
@@ -15,6 +19,8 @@ const Input = ({
   name,
   id,
   accept,
+  onChange,
+  value,
 }: InputProps): JSX.Element => {
   return (
     <div className={clsx(styles.block, wrapperClassName)}>
@@ -30,6 +36,8 @@ const Input = ({
         id={id}
         className={clsx(styles.input, className)}
         accept={accept}
+        onChange={onChange}
+        value={value}
       />
     </div>
   );
