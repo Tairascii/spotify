@@ -1,0 +1,89 @@
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 8px;
+  max-width: 734px;
+  width: 100%;
+  background-color: $background-base;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  margin: 48px 0;
+}
+
+.continueWithButton {
+  @extend %reset-button;
+  display: flex;
+  align-items: center;
+  padding: 8px 32px;
+  border: 1px solid $essential-subdued;
+  border-radius: 50px;
+
+  &:hover {
+    border-color: $white;
+  }
+}
+
+.continueWithTitle {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: auto;
+  padding: 6px 28px;
+}
+
+.continueWithLogo {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.loginWithThird {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.divider {
+  height: 1px;
+  width: 324px;
+  margin: 36px 0;
+  border: none;
+  background-color: $background-elevated-base;
+}
+
+.input {
+  width: 324px;
+  margin-bottom: 20px;
+}
+
+.switcher {
+  padding: 6px 0;
+}
+
+.continue {
+  @extend %reset-button;
+  height: 48px;
+  padding: 8px 32px;
+  width: 100%;
+  border-radius: 9999px;
+  background-color: $b-green;
+}
+
+.continueText {
+  color: $black;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.signinQuestion {
+  color: $text-subdued;
+}
+
+.signInLink {
+  color: $white;
+}
+

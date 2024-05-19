@@ -4,7 +4,7 @@ import { continueWithLinks } from "@/constants/continueWith";
 import { UrlEnum } from "@/enums/UrlEnum";
 import { Input } from "@/ui/Input";
 import { Switcher } from "@/ui/Switcher";
-import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./Login.module.scss";
 import useLoginStore from "./useLogin";
@@ -17,11 +17,11 @@ const Login = (): JSX.Element => {
       <div className={styles.loginWithThird}>
         {continueWithLinks.map((item) => (
           <button className={styles.continueWithButton}>
-            <span
-              className={styles.continueWithLogo}
-              style={{
-                background: `url(${item.background}) center center no-repeat;`,
-              }}
+            <Image
+              alt={item.title}
+              src={item.background}
+              width={24}
+              height={24}
             />
             <span className={styles.continueWithTitle}>{item.title}</span>
           </button>
