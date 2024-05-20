@@ -3,14 +3,16 @@
 import { continueWithLinks } from "@/constants/continueWith";
 import { UrlEnum } from "@/enums/UrlEnum";
 import { Input } from "@/ui/Input";
-import Image from 'next/image'
+import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import styles from "./SignUp.module.scss";
 import useLoginStore from "./useSignUp";
 
 const SignUp = (): JSX.Element => {
   const { login, setLogin, password, setPassword, name, setName, onSubmit } =
     useLoginStore();
+  const router = useRouter();
   return (
     <div className={styles.block}>
       <h3 className={styles.title}>Sign up and immerse yourself in music</h3>
@@ -44,7 +46,9 @@ const SignUp = (): JSX.Element => {
         />
         <button
           className={styles.continue}
-          onClick={() => onSubmit(login, password, name)}
+          onClick={() =>
+            onSubmit(login, password, name, () => router.push(UrlEnum.login))
+          }
         >
           <span className={styles.continueText}>Sign up</span>
         </button>
@@ -52,7 +56,7 @@ const SignUp = (): JSX.Element => {
       <hr className={styles.divider} />
       <div className={styles.loginWithThird}>
         {continueWithLinks.map((item) => (
-          <button className={styles.continueWithButton}>
+          <button className={styles.continueWithButton} key={item.background}>
             <Image
               alt={item.title}
               src={item.background}

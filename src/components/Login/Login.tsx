@@ -6,11 +6,13 @@ import { Input } from "@/ui/Input";
 import { Switcher } from "@/ui/Switcher";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import styles from "./Login.module.scss";
 import useLoginStore from "./useLogin";
 
 const Login = (): JSX.Element => {
-  const { login, setLogin, password, setPassword, onSubmit } = useLoginStore();
+  const { email, setEmail, password, setPassword, onSubmit } = useLoginStore();
+  const router = useRouter()
   return (
     <div className={styles.block}>
       <h3 className={styles.title}>Log in to Spotify</h3>
@@ -34,8 +36,8 @@ const Login = (): JSX.Element => {
           label="Email or username"
           id="email"
           placeholder="Email or username"
-          value={login}
-          onChange={(e) => setLogin(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className={styles.input}
         />
         <Input
@@ -55,7 +57,7 @@ const Login = (): JSX.Element => {
         />
         <button
           className={styles.login}
-          onClick={() => onSubmit(login, password)}
+          onClick={() => onSubmit(email, password, () => router.push(UrlEnum.home))}
         >
           <span className={styles.loginText}>Log In</span>
         </button>

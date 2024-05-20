@@ -7,7 +7,7 @@ interface Tokens {
 }
 
 export const signIn = async (data: {
-  login: string;
+  email: string;
   password: string;
 }): Promise<Tokens> => {
   const response = await axiosConfig({
@@ -16,8 +16,7 @@ export const signIn = async (data: {
     method: "POST",
   });
 
-  console.log(response);
-  return response;
+  return response.data;
 };
 
 export const signUp = async (data: {
@@ -28,11 +27,10 @@ export const signUp = async (data: {
 }): Promise<void> => {
   const response = await axiosConfig({
     data,
-    url: getApiPath("/auth/sign-in"),
+    url: getApiPath("/auth/sign-up"),
     method: "POST",
   });
 
-  console.log(response);
   return;
 };
 
@@ -43,6 +41,5 @@ export const refreshToken = async (token: string): Promise<Tokens> => {
     method: "POST",
   });
 
-  console.log(response);
-  return;
+  return response.data;
 };

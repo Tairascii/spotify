@@ -3,23 +3,24 @@ import cookie from "js-cookie";
 import { create } from "zustand";
 
 interface LoginStore {
-  login: string;
+  email: string;
   password: string;
-  setLogin: (val: string) => void;
+  setEmail: (val: string) => void;
   setPassword: (val: string) => void;
-  onSubmit: (login: string, password: string) => Promise<void>;
+  onSubmit: (email: string, password: string, cb: Function) => Promise<void>;
 }
 
 const useLoginStore = create<LoginStore>((set) => ({
-  login: "",
+  email: "",
   password: "",
-  setLogin: (val) => set({ login: val }),
+  setEmail: (val) => set({ email: val }),
   setPassword: (val) => set({ password: val }),
-  onSubmit: async (login: string, password: string) => {
+  onSubmit: async (email, password, cb) => {
     try {
-      const tokens = await signIn({ login, password });
+      const tokens = await signIn({ email, password });
       cookie.set("accessToken", tokens.accessToken);
       cookie.set("refreshtoken", tokens.refreshToken);
+      cb()
     } catch (err) {
       console.log(err)
     }
