@@ -1,6 +1,7 @@
 import { Figtree } from "next/font/google";
 import "@/styles/globals.scss";
 import dynamic from "next/dynamic";
+import { UserProvider } from "@/providers/UserProvider";
 
 const ModalProvider = dynamic(
   () => import("../providers/ModalProvider/ModalProvider"),
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className={figtree.className}>
         {children}
         <ModalProvider />
+        <UserProvider />
       </body>
     </html>
   );

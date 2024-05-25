@@ -2,6 +2,7 @@
 
 import { continueWithLinks } from "@/constants/continueWith";
 import { UrlEnum } from "@/enums/UrlEnum";
+import { useUser } from "@/hooks/useUser";
 import { Input } from "@/ui/Input";
 import { Switcher } from "@/ui/Switcher";
 import Image from "next/image";
@@ -12,7 +13,8 @@ import useLoginStore from "./useLogin";
 
 const Login = (): JSX.Element => {
   const { email, setEmail, password, setPassword, onSubmit } = useLoginStore();
-  const router = useRouter()
+  const { setIsSignedIn } = useUser();
+  const router = useRouter();
   return (
     <div className={styles.block}>
       <h3 className={styles.title}>Log in to Spotify</h3>
@@ -57,7 +59,12 @@ const Login = (): JSX.Element => {
         />
         <button
           className={styles.login}
-          onClick={() => onSubmit(email, password, () => router.push(UrlEnum.home))}
+          onClick={() =>
+            onSubmit(email, password, () => {
+              router.push(UrlEnum.home)
+              setIsSignedIn(true)
+            })
+          }
         >
           <span className={styles.loginText}>Log In</span>
         </button>

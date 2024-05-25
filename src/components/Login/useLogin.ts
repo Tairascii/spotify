@@ -1,5 +1,5 @@
 import { signIn } from "@/api/auth";
-import cookie from "js-cookie";
+import { cookies } from "next/dist/client/components/headers";
 import { create } from "zustand";
 
 interface LoginStore {
@@ -18,11 +18,12 @@ const useLoginStore = create<LoginStore>((set) => ({
   onSubmit: async (email, password, cb) => {
     try {
       const tokens = await signIn({ email, password });
-      cookie.set("accessToken", tokens.accessToken);
-      cookie.set("refreshtoken", tokens.refreshToken);
-      cb()
+      const cookiesStore = cookies()
+      cookiesStore.set("accessToken", tokens.accessToken);
+      cookiesStore.set("refreshtoken", tokens.refreshToken);
+      cb();
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   },
 }));
