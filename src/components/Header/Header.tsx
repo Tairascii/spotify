@@ -1,5 +1,7 @@
 "use client";
 import { UrlEnum } from "@/enums/UrlEnum";
+import { useUser } from "@/hooks/useUser";
+import { Button } from "@/ui/Button";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -9,6 +11,11 @@ interface HeaderProps {}
 
 const Header = ({}: HeaderProps): JSX.Element => {
   const router = useRouter();
+  const { isSignedIn, onLogout, setIsSignedIn } = useUser();
+  const handleLogout = () => {
+    router.push(UrlEnum.home);
+    setIsSignedIn(false);
+  };
 
   return (
     <div className={styles.block}>
@@ -22,7 +29,16 @@ const Header = ({}: HeaderProps): JSX.Element => {
           </button>
         </div>
         <div className={styles.account}>
-          {true && (
+          {isSignedIn && (
+            <Button
+              text={"Logout"}
+              className={styles.logout}
+              onClick={() => {
+                onLogout(handleLogout);
+              }}
+            />
+          )}
+          {!isSignedIn && (
             <div className={styles.signInUp}>
               <Link href={UrlEnum.signup} className={styles.signUp}>
                 <span className={styles.signUpText}>Sign up</span>
